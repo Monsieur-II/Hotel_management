@@ -1,7 +1,7 @@
 from app import db
 
 class Staff(db.Model):
-    __tablename__ = 'Staff'
+    __tablename__ = 'Staffs'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
     position = db.Column(db.String(100), nullable=False)
@@ -11,3 +11,8 @@ class Staff(db.Model):
     tel = db.Column(db.String(100), nullable=False)
     address = db.Column(db.String(100), nullable=False)
     date_of_employment = db.Column(db.Date, nullable=False)
+    
+
+    def __repr__(self):
+        return f'<Staff {self.name}>'
+

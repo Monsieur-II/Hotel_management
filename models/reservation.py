@@ -2,10 +2,7 @@ from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
-app = Flask(__name__)
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///reservations.db'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://username:password@hostname/database_name' # Use case: 'mysql://root:password@localhost/hotel_database'
-db = SQLAlchemy(app)
+
 
 class Reservation(db.Model):
     __tablename__ = 'Reservation'

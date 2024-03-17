@@ -9,7 +9,9 @@ import os
 app = Flask(__name__)
 CORS(app)
 load_dotenv()  # take environment variables from .env.
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
+app = Flask(__name__)
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///reservations.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://username:password@hostname/database_name' # Use case: 'mysql://root:password@localhost/hotel_database'
 db = SQLAlchemy(app)
 # app.register_blueprint(user)
 # app.register_blueprint(product)

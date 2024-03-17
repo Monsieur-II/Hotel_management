@@ -11,6 +11,9 @@ class Room(db.Model):
     is_available = db.Column(db.Boolean, default=True)
     available_date = db.Column(db.Date, nullable=False)
     # amenities = db.Column(db.String(100), nullable=False)
+    
+    def Rooms():
+        return Room.query.all() 
 
     def __str__(self):
         return f'<Room {self.room_number}>'
