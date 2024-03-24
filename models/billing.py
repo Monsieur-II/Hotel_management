@@ -1,7 +1,8 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify, Blueprint
 from flask_sqlalchemy import SQLAlchemy
 from guests import Guest
 
+billing_bp = Blueprint('billing', __name__)
 
 class Billing(db.Model):
     __tablename__ = 'billing'

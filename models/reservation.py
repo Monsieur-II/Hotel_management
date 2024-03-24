@@ -1,7 +1,9 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, Blueprint
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+from . import db
 
+reservation_bp = Blueprint('reservation', __name__)
 
 
 class Reservation(db.Model):
@@ -43,6 +45,4 @@ def get_reservations():
 
     return jsonify(reservation_list), 200
 
-if __name__ == '__main__':
-    db.create_all()
-    app.run(debug=True)
+

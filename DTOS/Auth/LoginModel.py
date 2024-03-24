@@ -19,22 +19,22 @@ def login():
 
         if admin:
             session['admin_id'] = admin.id
-            return redirect('/dashboard')
+            return redirect('/admin_dashboard')
         else:
-            return render_template('login.html', error='Invalid username or password')
+            return render_template('admin_login.html', error='Invalid username or password')
     
-    return render_template('login.html')
+    return render_template('admin_login.html')
 
 
-@app.route('/dashboard')
+@app.route('/admin_dashboard')
 def dashboard():
     if 'admin_id' in session:
-        return render_template('dashboard.html')
+        return render_template('admin_dashboard.html')
     else:
-        return redirect('/login')
+        return redirect('/admin_login')
 
 
 @app.route('/logout')
 def logout():
     session.pop('admin_id', None)
-    return redirect('/login')
+    return redirect('/admin_login')

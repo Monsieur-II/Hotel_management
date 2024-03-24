@@ -1,28 +1,25 @@
-#!/usr/bin/python3
-""" new class for sqlAlchemy """
-from os import getenv
+
 from sqlalchemy.orm import sessionmaker, scoped_session
-from sqlalchemy import (create_engine)
+from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
-from models.base_model import Base
-from models.state import State
-from models.city import City
-from models.user import User
-from models.place import Place
-from models.review import Review
-from models.amenity import Amenity
+from os import getenv
+from models.reservation import Reservation
+from booking import Booking
+from billing import Billing
+from guests import Guest
+
 
 
 class DBStorage:
-    """ create tables in environmental"""
+    
     __engine = None
     __session = None
 
     def __init__(self):
-        user = getenv("HBNB_MYSQL_USER")
-        passwd = getenv("HBNB_MYSQL_PWD")
-        db = getenv("HBNB_MYSQL_DB")
-        host = getenv("HBNB_MYSQL_HOST")
+        user = getenv("MYSQL_USER")
+        passwd = getenv("MYSQL_PWD")
+        db = getenv("MYSQL_DB")
+        host = getenv("MYSQL_HOST")
         env = getenv("HBNB_ENV")
 
         self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'
@@ -33,52 +30,44 @@ class DBStorage:
             Base.metadata.drop_all(self.__engine)
 
     def all(self, cls=None):
-        """returns a dictionary
-        Return:
-            returns a dictionary of __object
-        """
+        """Returns a dictionary of objects"""
         dic = {}
         if cls:
-            if type(cls) is str:
+            if isinstance(cls, str):
                 cls = eval(cls)
             query = self.__session.query(cls)
-            for elem in query:
-                key = "{}.{}".format(type(elem).__name__, elem.id)
-                dic[key] = elem
+            for obj in query:
+                key = "{}.{}".format(type(obj).__name__, obj.id)
+                dic[key] = obj
         else:
-            lista = [State, City, User, Place, Review, Amenity]
-            for clase in lista:
-                query = self.__session.query(clase)
-                for elem in query:
-                    key = "{}.{}".format(type(elem).__name__, elem.id)
-                    dic[key] = elem
-        return (dic)
+            classes = [Reservation, Booking, Billing, Guest]
+            for cls in classes:
+                query = self.__session.query(cls)
+                for obj in query:
+                    key = "{}.{}".format(type(obj).__name__, obj.id)
+                    dic[key] = obj
+        return dic
 
     def new(self, obj):
-        """add a new element in the table
-        """
+        """Add a new object to the session"""
         self.__session.add(obj)
 
     def save(self):
-        """save changes
-        """
+        """Commit all changes in the session"""
         self.__session.commit()
 
     def delete(self, obj=None):
-        """delete an element in the table
-        """
+        """Delete an object from the session"""
         if obj:
-            self.session.delete(obj)
+            self.__session.delete(obj)
 
     def reload(self):
-        """configuration
-        """
-        Base.metadata.create_all(self.__engine) # this creates the tables
-        sec = sessionmaker(bind=self.__engine, expire_on_commit=False) # factory for making session class
-        Session = scoped_session(sec) # thread-local session so that you can call upon it in different parts of the app
-        self.__session = Session() # instance of the session class
+        """Create tables and session"""
+        Base.metadata.create_all(self.__engine)
+        Session = scoped_session(sessionmaker(bind=self.__engine,
+                                               expire_on_commit=False))
+        self.__session = Session()
 
     def close(self):
-        """ calls remove()
-        """
+        """Close the session"""
         self.__session.close()
