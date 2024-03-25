@@ -1,4 +1,13 @@
-from flask import Flask, request, jsonify, Blueprint
+from database import db
+
+
+class Billing(db.Model):
+    __tablename__ = 'Billing'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    guest_id = db.Column(db.Integer, db.ForeignKey('Guests.id'))
+    amount = db.Column(db.Integer, nullable=False)
+    guest = db.relationship("Guest", back_populates="billing")
+"""from flask import Flask, request, jsonify, Blueprint
 from flask_sqlalchemy import SQLAlchemy
 from guests import Guest
 
@@ -35,6 +44,4 @@ def generate_bill():
         "Total Bill": total_bill
     }
 
-if __name__ == '__main__':
-    db.create_all()
-    app.run(debug=True)
+"""

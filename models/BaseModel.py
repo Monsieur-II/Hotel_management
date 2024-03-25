@@ -1,5 +1,4 @@
-#!/usr/bin/python3
-
+"""
 from sqlalchemy.ext.declarative import declarative_base
 import uuid
 import models
@@ -35,3 +34,4 @@ class BaseModel:
 
     def delete(self):
         models.storage.delete(self)
+"""

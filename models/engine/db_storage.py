@@ -1,4 +1,4 @@
-
+"""""
 from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
@@ -30,7 +30,7 @@ class DBStorage:
             Base.metadata.drop_all(self.__engine)
 
     def all(self, cls=None):
-        """Returns a dictionary of objects"""
+        '''Returns a dictionary of objects'''
         dic = {}
         if cls:
             if isinstance(cls, str):
@@ -49,25 +49,27 @@ class DBStorage:
         return dic
 
     def new(self, obj):
-        """Add a new object to the session"""
+        '''Add a new object to the session'''
         self.__session.add(obj)
 
     def save(self):
-        """Commit all changes in the session"""
+        '''Commit all changes in the session'''
         self.__session.commit()
 
     def delete(self, obj=None):
-        """Delete an object from the session"""
+        '''Delete an object from the session'''
         if obj:
             self.__session.delete(obj)
 
     def reload(self):
-        """Create tables and session"""
+        '''Create tables and session'''
         Base.metadata.create_all(self.__engine)
         Session = scoped_session(sessionmaker(bind=self.__engine,
                                                expire_on_commit=False))
         self.__session = Session()
 
     def close(self):
-        """Close the session"""
+        '''Close the session'''
         self.__session.close()
+        
+"""""
