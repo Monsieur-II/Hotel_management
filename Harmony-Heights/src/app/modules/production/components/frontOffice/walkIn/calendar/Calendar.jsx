@@ -160,52 +160,17 @@ const listViewData = roomsdata?.data.map((e)=>{
 
   }
 })
-// console.log(listViewData)
-// let filteredBookings = []
-  // const allBookings = bookingdata?.data.map((item) => {
-  //   const allGuests = guestsdata?.data?.filter((data) => {
-  //     return data.id === item.guestId
-  //   })
 
-  //   // filteredBookings.push({
-  //   //   Id: item.id,
-  //   //   Subject: allGuests ? allGuests[0]?.firstname : null,
-  //   //   StartTime: item.bookStart,
-  //   //   EndTime: item.bookEnd,
-  //   //   RoomId: item.roomId,
-  //   //   checkInTime: item.checkInTime,
-  //   // })
-  //   return {
-  //     Id: item.id,
-  //     Subject: allGuests ? allGuests[0]?.firstname : null,
-  //     StartTime: item.bookStart,
-  //     EndTime: item.bookEnd,
-  //     RoomId: item.roomId,
-  //     checkInTime: item.checkInTime,
-  //   }
-  //   // return item
-  // })
-// useEffect(()=>{
-//   setCalendFinalData(allBookings)
-// },[allBookings])
-
+  
 
   const onActionBegin = (args) => {
-    // console.log('first args', args)
-    // args.cancel = true
-    // console.log('args', args)
+    
     if (args.data !== undefined) {
       const data = args.data[0] ? args.data[0] : args.data
       // console.log(args?.data[0].Room)
         // console.log(roomsdata?.data.filter(e=>e.name===args?.data[0].Room))
       const dat =  roomsdata?.data.find(e=>e.name===args?.data[0].Room)
-        // console.log('dat ',dat);
-        // console.log('dat.id ',dat['id']);
-      // for (let index = 0; index < roomsdata?.data.length; index++) {
-      //   // const element = array[index];
         
-      // }
-      //Save
       if (args.requestType === 'eventCreate') {
         // console.log("This one here")
         // console.log("data: ",data)
@@ -294,39 +259,6 @@ const listViewData = roomsdata?.data.map((e)=>{
       }
       }
 
-      //Edit
-      // if (args.requestType === 'eventChange') {
-      //   // console.log('gameSchedule Edit', args)
-      //   const gameSchedule = {
-      //     id: data.id,
-      //     subject: data.Subject,
-      //     startTime: data.StartTime,
-      //     endTime: data.EndTime,
-      //     description: data.guest,
-      //     gameTypeId: data.gameType,
-      //   }
-      //   // updateGameSchedule(gameSchedule)
-      // }
-      //Cancel
-      // if (args.requestType === '') {
-      //   console.log('Close popup', args)
-      //   Modal.confirm({
-      //     okText: 'Checkin',
-      //     okType: 'primary',
-      //     title: 'Do you want to check in',
-      //     onOk: () => {
-      //     },
-      //   })
-      //   // const gameSchedule = {
-      //   //   id: data.id,
-      //   //   subject: data.Subject,
-      //   //   startTime: data.StartTime,
-      //   //   endTime: data.EndTime,
-      //   //   description: data.guest,
-      //   //   gameTypeId: data.gameType,
-      //   // }
-      //   // updateGameSchedule(gameSchedule)
-      // }
       
       if (args.requestType === 'eventRemove') {
         // deleteGameSchedule(data)
@@ -335,12 +267,7 @@ const listViewData = roomsdata?.data.map((e)=>{
         CancelBooking(args.data[0].Id,{
           onSuccess:()=>{
             message.success("Booking cancelled successfully")
-            // queryClient.invalidateQueries('bookings')
-            // queryClient.invalidateQueries('rooms')
-            // queryClient.invalidateQueries('guests')
-            // scheduleObj.current.refreshTemplates()
-            // scheduleObj.current.refreshLayout()
-            // navigate('/frontOffice/walkIn/')
+            
           },
           onError:(error)=>{
             message.error("Booking cancellation failed.")
@@ -408,7 +335,7 @@ const listViewData = roomsdata?.data.map((e)=>{
             </td>
           </tr>
           <tr>
-            <td className='required e-textlabel'>DOB</td>
+            {/* <td className='required e-textlabel'>DOB</td>
             <td colSpan={4}>
                 <input
                     type='date'
@@ -417,7 +344,7 @@ const listViewData = roomsdata?.data.map((e)=>{
                     id='DOB'
                     data-name='DOB'
                 />
-            </td>
+            </td> */}
           </tr>
           <tr>
             <td className='required e-textlabel'>Phone Number</td>
@@ -446,7 +373,7 @@ const listViewData = roomsdata?.data.map((e)=>{
               />
             </td>
           </tr>
-          <tr>
+          {/* <tr>
             <td className='required e-textlabel'>ID Type</td>
             <td colSpan={4}>
               <DropDownListComponent
@@ -460,8 +387,8 @@ const listViewData = roomsdata?.data.map((e)=>{
                 style={{width: '100%'}}
               />
             </td>
-          </tr>
-          <tr>
+          </tr> */}
+          {/* <tr>
             <td className='required e-textlabel'>ID Number</td>
             <td colSpan={4}>
                 <input
@@ -472,12 +399,12 @@ const listViewData = roomsdata?.data.map((e)=>{
                     className='e-field e-input'
                 />
             </td>
-          </tr>
-          <tr>
+          </tr> */}
+          {/* <tr>
             <td className='required e-textlabel'>Nationality</td>
             <td colSpan={4}>
-            {/* <Select
-              id='Nationality'
+            {/* <Select */}
+              {/* id='Nationality'
               // name='currency'
               className='e-field'
               style={{ width: '100%' }}
@@ -489,8 +416,8 @@ const listViewData = roomsdata?.data.map((e)=>{
                   {item.name}
                 </Select.Option>
               ))}
-            </Select> */}
-            <DropDownListComponent
+            </Select> */} 
+            {/* <DropDownListComponent
                 id='guests'
                 placeholder='Nationality'
                 data-name='nationalityId'
@@ -500,7 +427,7 @@ const listViewData = roomsdata?.data.map((e)=>{
                 fields={{text: 'name', value: 'id'}}
                 // value={props && props.gameTypeId ? props.gameTypeId : null}
                 style={{width: '100%'}}
-              />
+              /> */}
                 {/* <input
                     type='text'
                     id='Nationality'
@@ -509,8 +436,8 @@ const listViewData = roomsdata?.data.map((e)=>{
                     className='e-field e-input'
                     data-name='Nationality'
                 /> */}
-            </td>
-          </tr>
+            {/* </td>
+          </tr> */}
         <td className='e-textlabel'>Registered Guest</td>
               <tr>
         <td className='e-textlabel'>Room</td>
@@ -709,23 +636,9 @@ const listViewData = roomsdata?.data.map((e)=>{
       </div>
     )
   }
-  // const OnDestroyed= (args) =>{
-  //       //Here you can customize your code
-  //       console.log('Close popup', args)
-  //       Modal.confirm({
-  //         okText: 'Checkin',
-  //         okType: 'primary',
-  //         title: 'Do you want to check in',
-  //         onOk: () => {
-  //         },
-  //       })
-  //   }
+  
   const OnPopupClose=(args)=>{
-    // console.log('Close popup', args)
-        // if (args.Type == PopupType.Editor || args.Type == PopupType.QuickInfo)
-        // {
-        //     args.Data.Subject = (args.Data.Subject == "Add title") ? "New event" : args.Data.Subject;   //The default subject is changed from Add Title to New event
-        // }
+    // console.log('args ',args)
     }
     const handleSwitchChange = (checked) => {
       setSwitchOn(checked);
@@ -813,28 +726,7 @@ const listViewData = roomsdata?.data.map((e)=>{
         },
       },
   
-      // {
-      //   title: 'Action',
-      //   fixed: 'right',
-      //   width: 20,
-      //   render: (_,record) => (
-      //     <Space size='middle'>
-      //       {/* <Link to={`/services/details/${record.id}`}>
-      //         <a href='#' className='btn btn-light-primary btn-sm'>
-      //           Edit
-      //         </a>
-      //       </Link> */}
-      //       {/* <Link to={`/employee-edit-form/${record.id}`}> */}
-      //       <a
-      //         href='#'
-      //         className='btn btn-light-danger btn-sm'
-      //         onClick={() => deleteRole(record.id)}
-      //       >
-      //         Delete
-      //       </a>
-      //     </Space>
-      //   ),
-      // },
+      
     ]
 
   return roomsdata !== undefined ? (

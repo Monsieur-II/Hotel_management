@@ -7,7 +7,7 @@ import { BASE_URL } from '../../../urls'
 import type { RcFile, UploadFile, UploadProps } from 'antd/es/upload/interface';
 import { UploadOutlined } from '@ant-design/icons';
 import { ColumnsType } from 'antd/es/table'
-import { employeedata } from '../../../../../data/DummyData'
+// import { employeedata } from '../../../../../data/DummyData'
 import { useForm } from 'react-hook-form'
 import { Api_Endpoint} from '../../../../../services/ApiCalls'
 // import { Api_Endpoint, fetchEmployees, fetchJobTitles, fetchTrainees, fetchTrainingDevTransactions, fetchTrainings, fetchTrainingSchedules } from '../../../../../services/ApiCalls'
@@ -352,68 +352,7 @@ const TrainingDevelopment = () => {
     }
   }
 
-  // const { data: allTrainingDevTransactions } = useQuery('trainingDevTransactions', fetchTrainingDevTransactions, { cacheTime: 5000 })
-  // const { data: allTrainingSchedules } = useQuery('trainingSchedules', fetchTrainingSchedules, { cacheTime: 5000 })
-  // const { data: allTraininees } = useQuery('trainees', fetchTrainees, { cacheTime: 5000 })
-  // const { data: allTraininings } = useQuery('trainings', fetchTrainings, { cacheTime: 5000 })
-  // const { data: allEmployees } = useQuery('employees', fetchEmployees, { cacheTime: 5000 })
-  // const { data: allJobTitles } = useQuery('jobTitles', fetchJobTitles, { cacheTime: 5000 })
-
-
-  // const getFirstName = (emId: any) => {
-  //   let firstName = null
-  //   allEmployees?.data.map((item: any) => {
-  //     if (item.id === emId) {
-  //       firstName=item.firstName
-  //     }
-  //   })
-  //   return firstName
-  // }
-  // const getEmID = (emId: any) => {
-  //   let emID = null
-  //   allEmployees?.data.map((item: any) => {
-  //     if (item.id === emId) {
-  //       emID=item.employeeId
-  //     }
-  //   })
-  //   return emID
-  // }
-  // const getSurname = (emId: any) => {
-  //   let firstName = null
-  //   allEmployees?.data.map((item: any) => {
-  //     if (item.id === emId) {
-  //       firstName=item.surname
-  //     }
-  //   })
-  //   return firstName
-  // }
-  // const getDOB = (emId: any) => {
-  //   let firstName = null
-  //   allEmployees?.data.map((item: any) => {
-  //     if (item.id === emId) {
-  //       firstName=item.dob
-  //     }
-  //   })
-  //   return firstName
-  // }
-  // const getGender = (emId: any) => {
-  //   let gender = null
-  //   allEmployees?.data.map((item: any) => {
-  //     if (item.id === emId) {
-  //       gender=item.gender
-  //     }
-  //   })
-  //   return gender
-  // }
-  // const getPhone = (emId: any) => {
-  //   let phone = null
-  //   allEmployees?.data.map((item: any) => {
-  //     if (item.id === emId) {
-  //       phone=item.phone
-  //     }
-  //   })
-  //   return phone
-  // }
+ 
 
 
   const  data = [
@@ -442,9 +381,7 @@ const TrainingDevelopment = () => {
     }
   ];
 
-//   const dataByID:any = allTrainingDevTransactions?.data.find((refId:any) =>{
-//     return  (refId.id===parseInt(selectedRef))
-//  })
+
 
   const trainSchData:any = trainingScheduleData.filter((refId:any) =>{
     return  (refId.trainingDevTransactionId===parseInt(selectedRef))
@@ -456,39 +393,9 @@ const TrainingDevelopment = () => {
 
 
  const onEmployeeChange = (objectId: any) => {
-  // const newEmplo = allEmployees?.data.find((item:any)=>{
-  //   return item.id===parseInt(objectId)
-  // }) // console.log(newEmplo)
-  // setEmployeeRecord(newEmplo)
+ 
 }
-  // useEffect(() => {
-  //   const getTrainingName = () => {
-  //     let trainingName = ""
-  //     allTraininings?.data.map((item: any) => {
-  //       if (item.id === dataByID?.trainingId) {
-  //         trainingName=item.name
-  //         console.log("Hi test works")
-  //       }
-  //     })
-
-      
-  //     return setTrainingName(trainingName)
-  //   } 
-  //   const getUnitName = () => {
-  //     let jobtitleName = ""
-  //     allJobTitles?.data.map((item: any) => {
-  //       if (item.id === employeeRecord?.jobTitleId) {
-  //         jobtitleName=item.name
-  //       }
-  //     })
-  //     setJobtitleName(jobtitleName)
-  //     return jobtitleName
-  //   } 
-  //   getTrainingName()
-  //   getUnitName()
-  //   loadTrainingScheduleData()
-  //   loadTraineeData()
-  // }, [dataByID?.trainingId])
+  
 
   const dataWithIndex = gridData.map((item: any, index) => ({
     ...item,

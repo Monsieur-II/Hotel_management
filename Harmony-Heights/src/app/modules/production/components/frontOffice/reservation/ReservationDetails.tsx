@@ -7,7 +7,7 @@ import { UploadOutlined } from '@ant-design/icons';
 import { Button, Form, Modal, Space, Table, Upload } from 'antd';
 // import { Api_Endpoint, fetchCategories, fetchDepartments, fetchDivisions, fetchEmployees, fetchExperiences, fetchGrades, fetchJobTitles, fetchNationalities, fetchNotches, fetchPaygroups, fetchQualifications, fetchSkills, fetchUnits } from '../../../../../services/ApiCalls';
 import { Api_Endpoint} from '../../../../../services/ApiCalls';
-import { BANKS, CATEGORY, DEPARTMENTS, DIVISION, employeedata, GRADES, MEDICALS, NOTCHES, UNITS } from '../../../../../data/DummyData';
+// import { BANKS, CATEGORY, DEPARTMENTS, DIVISION, employeedata, GRADES, MEDICALS, NOTCHES, UNITS } from '../../../../../data/DummyData';
 import { KTSVG } from '../../../../../../_metronic/helpers';
 import { useQuery } from 'react-query';
 import axios from 'axios';

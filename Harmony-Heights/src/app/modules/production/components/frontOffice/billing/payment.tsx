@@ -121,11 +121,8 @@ const Payment = () => {
       // width: 20,
       render: (_: any, record: any) => (
         <Space size='middle'>
-          {/* <Link to={`/notes-form/${record.id}`}>
-          <span className='btn btn-light-info btn-sm delete-button' style={{ backgroundColor: 'blue', color: 'white' }}>Note</span>
-          </Link> */}
+          
           <Checkbox />
-          {/* <span className='btn btn-light-info btn-sm delete-button' style={{ backgroundColor: 'red', color: 'white' }} >Delete</span> */}
         </Space>
       ),
     },

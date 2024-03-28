@@ -4,7 +4,6 @@ import axios from 'axios'
 
 import {BASE_URL} from '../../../urls'
 import {Link} from 'react-router-dom'
-// import { employeedata } from '../../../../../data/DummyData'
 import {useMutation, useQuery, useQueryClient} from 'react-query'
 
 import Checkbox from 'antd/es/checkbox/Checkbox'
@@ -127,13 +126,10 @@ const AllTransactions = () => {
       // width: 20,
       render: (_: any, record: any) => (
         <Space size='middle'>
-          {/* <Link to={`/notes-form/${record.id}`}>
-          <span className='btn btn-light-info btn-sm delete-button' style={{ backgroundColor: 'blue', color: 'white' }}>Note</span>
-          </Link> */}
+         
           <a href='#' className='btn btn-light-danger btn-sm'>
             Delete
           </a>
-          {/* <span className='btn btn-light-info btn-sm delete-button' style={{ backgroundColor: 'red', color: 'white' }} >Delete</span> */}
         </Space>
       ),
     },
@@ -171,12 +167,7 @@ const AllTransactions = () => {
               </Button>
             </Space>
             <Space style={{marginBottom: 16}}>
-              {/* <Link to='/guest-form'>
-              <button type='button' className='btn btn-primary me-3'>
-                <KTSVG path='/media/icons/duotune/arrows/arr075.svg' className='svg-icon-2' />
-                Add
-              </button>
-              </Link> */}
+              
 
               <button type='button' className='btn btn-light-primary me-3'>
                 <KTSVG path='/media/icons/duotune/arrows/arr078.svg' className='svg-icon-2' />

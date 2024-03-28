@@ -4,7 +4,7 @@ import axios from 'axios'
 import {KTCardBody, KTSVG} from '../../../../../../_metronic/helpers'
 import { BASE_URL } from '../../../urls'
 import { Link } from 'react-router-dom'
-import { employeedata } from '../../../../../data/DummyData'
+// import { employeedata } from '../../../../../data/DummyData'
 import { useQuery } from 'react-query'
 import { Api_Endpoint } from '../../../../../services/ApiCalls'
 

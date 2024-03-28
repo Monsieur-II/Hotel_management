@@ -74,66 +74,14 @@ const UsersForm = () => {
     imgWindow?.document.write(image.outerHTML)
   }
 
-  // const url = `${Api_Endpoint}/users`
-
-  // const OnSUbmit = handleSubmit( async (values, event)=> {
-  //   event?.preventDefault();
-  //   setLoading(true)
-  //   const data = {
-  //     firstName: values.firstName,
-  //     lastname: values.lastname,
-  //     email: values.email,
-  //     account: values.account,
-  //     gender: values.gender,
-  //     dob: values.dob,
-  //     phoneNumber: values.phoneNumber,
-  //     idType: values.idType,
-  //     nationality: values.nationality,
-  //     idNumber: values.idNumber,
-  //     docUrl:'',
-  //       }
-  //       console.log(data)
-  //   try {
-  //     console.log(data)
-  //     const response = await axios.post(url, data)
-  //     setSubmitLoading(false)
-  //     reset()
-  //     navigate('/grm/Guests/', {replace: true})
-  //     return response.statusText
-  //   } catch (error: any) {
-  //     setSubmitLoading(false)
-  //     return error.statusText
-  //   }
-  // })
+  
 
   const OnSubmit = handleSubmit(async (values, event) => {
     event?.preventDefault()
     setLoading(true)
-    // console.log(values)
-    // const formData = new FormData()
-    // formData.append('firstName', values.firstName)
-    // formData.append('lastname', values.lastname)
-    // formData.append('email', values.email)
-    // formData.append('role', values.email)
-    // formData.append('gender', values.email)
-    // formData.append('username', values.username)
-    // formData.append('password', values.password)
-    // if (fileList[0]?.originFileObj) {
-    //   const file = fileList[0].originFileObj as File
-    //   formData.append('file', file)
-    // }
-
-    // formData.append("file", fileList[0]?.originFileObj);
-
+   
     try {
-      // const response = await axios.post(url, formData, {
-      //   headers: {'Content-Type': 'multipart/form-data'},
-      // })
-
-      // setSubmitLoading(false)
-      // reset()
-      // navigate('/users', {replace: true})
-      // return response.statusText
+     
       const dat =  userRoles?.data.find((e: { id: any })=>e.id===values.role)
       const userDetails:any = {
         // room: roomsdata?.data[args?.data?.Id-1]?.id,
@@ -148,8 +96,7 @@ const UsersForm = () => {
         // gameTypeId: data.gameType,
       }
 
-      // console.log('bookingSchedule', bookingSchedule)
-      // mutateGameSchedule(gameSchedule)
+     
       addNewUser(userDetails)
     } catch (error: any) {
       setSubmitLoading(false)

@@ -53,9 +53,7 @@ const AllService = () => {
         }
       })
       const room = roomsdata?.data.find((x: any) => {
-        // console.log("x", x)
-        // console.log("e", e)
-  
+        
         if (x.id === item.roomId) {
           return x
         }
@@ -77,11 +75,7 @@ const AllService = () => {
     // fetchImage()
   }, [])
 
-  // useEffect(() => {
-  //   // loadData()
-  //   setNewSearchedData(newSearchedData)
-  //   // fetchImage()
-  // }, [newSearchedData])
+  
 
   const handleOk = () => {
     setIsModalOpen(false)
@@ -139,9 +133,7 @@ const AllService = () => {
       // width: 20,
       render: (_: any, record: any) => (
         <Space size='middle'>
-          {/* <Link to={`/notes-form/${record.id}`}>
-          <span className='btn btn-light-info btn-sm delete-button' style={{ backgroundColor: 'blue', color: 'white' }}>Note</span>
-          </Link> */}
+          
           <a href='#' className='btn btn-light-danger btn-sm'>
             Delete
           </a>
@@ -198,12 +190,7 @@ const AllService = () => {
               </Button> */}
             </Space>
             <Space style={{marginBottom: 16}}>
-              {/* <Link to='/guest-form'>
-              <button type='button' className='btn btn-primary me-3'>
-                <KTSVG path='/media/icons/duotune/arrows/arr075.svg' className='svg-icon-2' />
-                Add
-              </button>
-              </Link> */}
+              
 
               <button type='button' className='btn btn-light-primary me-3'>
                 <KTSVG path='/media/icons/duotune/arrows/arr078.svg' className='svg-icon-2' />
