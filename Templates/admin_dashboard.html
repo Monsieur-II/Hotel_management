@@ -8,28 +8,36 @@
 </head>
 <body>
     <header>
-        <h1>Harmony Heights Hotel</h1>
+        <img  src="{{url_for('static',filename='images/harmony.JPG')}}" alt="harmony Heights Logo">
+        <h1>Harmony Heights</h1>
     </header>
     <main>
         <aside>
             <nav>
                 <ul>
                     <li><a href="{{ url_for('login.admin_dashboard') }} ">Dashboard</a></li>
-                    <li>
-                        <a href="#">Management</a>
-                        <ul>
-                            <li><a href="/manage_staffs">Manage Staffs</a></li>
-                            <li><a href="/manage_rooms">Manage Rooms</a></li>
-                        </ul>
+                    <li class="dropdown">
+                        <button class="dropbtn">Management</button>
+                        <div class="dropdown-content">
+                            <a href="/manage_staffs">Manage Staffs</a>
+                            <a href="/manage_rooms">Manage Rooms</a>
+                    </div>
                     </li>
                     <li><a href="{{ url_for('login.admin_logout') }}">Logout</a></li>
                 </ul>
             </nav>
         </aside>
+        
+        
+        
         <section>
-            <!-- Main content goes here -->
-            <h2>Welcome to the Admin Dashboard</h2>
-            <p>This is where you can manage staffs, rooms, and more.</p>
+            <ul class="dashboard-menu">
+                <div><a href="#" class="reservation">Reservation</a></div>
+                <div><a href="#" class="check-in">Check In</a></div>
+                <div><a href="#" class="check-out">Check Out</a></div>
+                <li class="no-link">Occupied: 10</li>
+                <li class="no-link">Vacant: 12</li>
+            </ul>
         </section>
     </main>
     <footer>
